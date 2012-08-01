@@ -1,0 +1,41 @@
+clear
+echo ""
+echo "                 ##########################################"
+echo "                 ##                                      ##"
+echo "                 ##        SuperRecovery Flasher         ##"
+echo "                 ##         OliverG96 y rezo609          ##"
+echo "                 ##                                      ##"
+echo "                 ##########################################"
+echo ""
+echo "1 - Marvel"
+echo "2 - Marvelc"
+echo "3 - Ayuda"
+echo -n "Elige tu version de Wildfire S: "
+read tipo
+if [ "$tipo" != "1" ] && [ "$tipo" != "2" ] && [ "$tipo" != "3" ]
+  then
+    clear
+    echo ""
+    echo "Solo puedes escribir un 1, un 2 o un 3"
+    sleep 3s
+    ./tools/espanol
+  fi
+
+if [ "$tipo" = "1" ]
+  then
+    ./tools/marveles
+  fi
+if [ "$tipo" = "2" ]
+  then
+    ./tools/marvelces
+  fi
+if [ "$tipo" = "3" ]
+  then
+    clear
+    echo ""
+    echo "Si no sabes cual elegir, te digo que con toda seguridad, si no vives en Estados Unidos puedes elegir la primera opción(marvel), ya que la version marvelc está preparada para funcionar con las redes CDMA, que solo se encuentran en este pais."
+    echo ""
+    echo "Esta ayuda se autocerrará en 20 segundos..."
+    sleep 20s
+    ./tools/espanol
+  fi

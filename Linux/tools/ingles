@@ -1,0 +1,7 @@
+clear
+echo ""
+echo "You must to write a 1 or a 2"
+echo "Solo puedes escribir un 1 o un 2"
+sleep 3s
+cd .
+./runme
