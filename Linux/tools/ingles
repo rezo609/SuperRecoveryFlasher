@@ -1,7 +1,41 @@
 clear
 echo ""
-echo "You must to write a 1 or a 2"
-echo "Solo puedes escribir un 1 o un 2"
-sleep 3s
-cd .
-./runme
+echo "                 ##########################################"
+echo "                 ##                                      ##"
+echo "                 ##        SuperRecovery Flasher         ##"
+echo "                 ##        OliverG96 and rezo609         ##"
+echo "                 ##                                      ##"
+echo "                 ##########################################"
+echo ""
+echo "1 - Marvel"
+echo "2 - Marvelc"
+echo "3 - Help"
+echo -n "Select your version of Wildfire S: "
+read type
+if [ "$type" != "1" ] && [ "$type" != "2" ] && [ "$type" != "3" ]
+  then
+    clear
+    echo ""
+    echo "You only can write a 1, a 2 or a 3"
+    sleep 3s
+    ./tools/ingles
+  fi
+
+if [ "$type" = "1" ]
+  then
+    ./tools/marvelen
+  fi
+if [ "$type" = "2" ]
+  then
+    ./tools/marvelcen
+  fi
+if [ "$type" = "3" ]
+  then
+    clear
+    echo ""
+    echo "If you don't know your WFS version, I'm sure, of that if you didn't live on EEUU you can select the first option(marvel), because the marvelc version is ready to work only on CDMA networks, that only can be found on this country."
+    echo ""
+    echo "This help window will be closed in 20 seconds..."
+    sleep 20s
+    ./tools/ingles
+  fi
