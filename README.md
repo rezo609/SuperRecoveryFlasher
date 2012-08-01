@@ -1,4 +1,10 @@
 SuperRecoveryFlasher
 ====================
 
-A tool to automatically flash recoveries for the marvel and marvelc from Ubuntu or Windows.
+A new tool that can seemlessly flash different recoveries to the marvel(c). WIP.
+
+Credits
+====================
+
+* OliverG96
+* rezo609
