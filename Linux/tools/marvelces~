@@ -1,0 +1,61 @@
+clear
+echo ""
+echo "                 ##########################################"
+echo "                 ##                                      ##"
+echo "                 ##        SuperRecovery Flasher         ##"
+echo "                 ##         OliverG96 y rezo609          ##"
+echo "                 ##               Marvelc                ##"
+echo "                 ##                                      ##"
+echo "                 ##########################################"
+echo ""
+echo "1 - ClocworkMod 6.0.0.3"
+echo "2 - TWRP 2.2.1"
+echo -n "Elige el recovery que quieres flashear: "
+read versiormc
+if [ "$versiormc" != "1" ] && [ "$versiormc" != "2" ]
+  then
+    clear
+    echo ""
+    echo "Solo puedes escribir un 1 o un 2"
+    sleep 3s
+    ./tools/marveles
+  fi
+
+if [ "$versiormc" = "1" ]
+  then
+    clear
+    echo "Conecta el teléfono por un cable USB al PC, y luego pulsa enter: "
+    read continuar
+    echo "Necesitamos permisos de superusuario, puede que se te pida tu contraseña de Ubuntu..."
+    echo ""
+    sudo ./tools/adb reboot bootloader
+    sleep 10s
+    echo "Flasheando recovery..."
+    echo ""
+    sudo ./tools/fastboot flash recovery ./tools/recoveries/marvelc/cwm6003.img
+    echo ""
+    echo "Iniciando recovery..."
+    sudo ./tools/fastboot reboot
+    sleep 20s
+    ./tools/adb reboot recovery
+    ./tools/marvelces
+  fi
+if [ "$versiormc" = "2" ]
+  then
+    clear
+    echo "Conecta el teléfono por un cable USB al PC, y luego pulsa enter: "
+    read continuar
+    echo "Necesitamos permisos de superusuario, puede que se te pida tu contraseña de Ubuntu..."
+    echo ""
+    sudo ./tools/adb reboot bootloader
+    sleep 10s
+    echo "Flasheando recovery..."
+    echo ""
+    sudo ./tools/fastboot flash recovery ./tools/recoveries/marvelc/twrp221.img
+    echo ""
+    echo "Iniciando recovery..."
+    sudo ./tools/fastboot reboot
+    sleep 20s
+    ./tools/adb reboot recovery
+    ./tools/marvelces
+  fi

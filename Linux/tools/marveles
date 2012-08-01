@@ -4,6 +4,7 @@ echo "                 ##########################################"
 echo "                 ##                                      ##"
 echo "                 ##        SuperRecovery Flasher         ##"
 echo "                 ##         OliverG96 y rezo609          ##"
+echo "                 ##                Marvel                ##"
 echo "                 ##                                      ##"
 echo "                 ##########################################"
 echo ""
@@ -82,7 +83,19 @@ if [ "$versiorm" = "3" ]
 if [ "$versiorm" = "4" ]
   then
     clear
-    echo "Este recovery no está listo para flashear aún"
-    sleep 5s
+    echo "Conecta el teléfono por un cable USB al PC, y luego pulsa enter: "
+    read continuar
+    echo "Necesitamos permisos de superusuario, puede que se te pida tu contraseña de Ubuntu..."
+    echo ""
+    sudo ./tools/adb reboot bootloader
+    sleep 10s
+    echo "Flasheando recovery..."
+    echo ""
+    sudo ./tools/fastboot flash recovery ./tools/recoveries/marvel/twrp221.img
+    echo ""
+    echo "Iniciando recovery..."
+    sudo ./tools/fastboot reboot
+    sleep 20s
+    ./tools/adb reboot recovery
     ./tools/marveles
   fi
