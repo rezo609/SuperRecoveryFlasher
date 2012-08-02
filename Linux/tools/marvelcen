@@ -25,12 +25,16 @@ if [ "$versiormc" != "1" ] && [ "$versiormc" != "2" ] && [ "$versiormc" != "3" ]
 if [ "$versiormc" = "1" ]
   then
     clear
-    echo "Plug the phone over an USB , and then press enter: "
+    echo ""
+    echo -n "Plug the phone over an USB, and then press enter: "
     read continuar
+    echo ""
     echo "We need Superuser access, it's possible that we ask four your Ubuntu password..."
     echo ""
     sudo ./tools/adb reboot bootloader
+    echo ""
     sleep 10s
+    echo ""
     echo "Flashing recovery..."
     echo ""
     sudo ./tools/fastboot flash recovery ./tools/recoveries/marvelc/cwm5028.img
@@ -45,12 +49,15 @@ if [ "$versiormc" = "1" ]
 if [ "$versiormc" = "2" ]
   then
     clear
-    echo "Plug the phone over an USB , and then press enter: "
+    echo ""
+    echo -n "Plug the phone over an USB, and then press enter: "
     read continuar
+    echo ""
     echo "We need Superuser access, it's possible that we ask four your Ubuntu password..."
     echo ""
     sudo ./tools/adb reboot bootloader
     sleep 10s
+    echo ""
     echo "Flashing recovery..."
     echo ""
     sudo ./tools/fastboot flash recovery ./tools/recoveries/marvelc/cwm6003.img
@@ -64,12 +71,15 @@ if [ "$versiormc" = "2" ]
 if [ "$versiormc" = "3" ]
   then
     clear
-    echo "Plug the phone over an USB , and then press enter: "
+    echo ""
+    echo -n "Plug the phone over an USB, and then press enter: "
     read continuar
+    echo ""
     echo "We need Superuser access, it's possible that we ask four your Ubuntu password..."
     echo ""
     sudo ./tools/adb reboot bootloader
     sleep 10s
+    echo ""
     echo "Flashing recovery..."
     echo ""
     sudo ./tools/fastboot flash recovery ./tools/recoveries/marvelc/twrp221.img

@@ -33,9 +33,44 @@ if [ "$type" = "3" ]
   then
     clear
     echo ""
-    echo "If you don't know your WFS version, I'm sure, of that if you didn't live on EEUU you can select the first option(marvel), because the marvelc version is ready to work only on CDMA networks, that only can be found on this country."
+    echo "If you dont know your Wildfire S version, we can boot you into bootloader and here you will find your version at the top of the screen."
     echo ""
-    echo "This help window will be closed in 20 seconds..."
-    sleep 20s
-    ./tools/ingles
+    echo -n "¿Reboot on bootloader mode?(Y/N) "
+    read restart
+    if [ "$restart" != "Y" ] && [ "$restart" != "y" ] && [ "$restart" != "N" ] && [ "$restart" != "n" ]
+      then
+        ./tools/ingles
+      fi
+    if [ "$restart" = "Y" ]
+    then
+        echo ""
+        echo -n "Connect the phone over an USB, and press one key to continue: "
+        read continuo2
+        echo ""
+        echo "We need Superuser access, it's possible that you must to write your Ubuntu password..."
+        echo ""
+        echo "Rebooting into bootloader..."
+        sudo ./tools/adb reboot bootloader
+        ./tools/ingles
+    fi
+    if [ "$restart" = "y" ]
+      then
+        echo ""
+        echo -n "Connect the phone over an USB, and press one key to continue: "
+        read continuo2
+        echo ""
+        echo "We need Superuser access, it's possible that you must to write your Ubuntu password..."
+        echo ""
+        echo "Rebooting into bootloader..."
+        sudo ./tools/adb reboot bootloader
+        ./tools/ingles
+      fi
+    if [ "$restart" = "N" ]
+      then
+        ./tools/ingles
+      fi
+    if [ "$restart" = "n" ]
+      then
+        ./tools/ingles
+      fi
   fi

@@ -33,9 +33,44 @@ if [ "$tipo" = "3" ]
   then
     clear
     echo ""
-    echo "Si no sabes cual elegir, te digo que con toda seguridad, si no vives en Estados Unidos puedes elegir la primera opción(marvel), ya que la version marvelc está preparada para funcionar con las redes CDMA, que solo se encuentran en este pais."
+    echo "Si no sabes cual elegir, escribe una S a continuación para reiniciar en modo bootloader tu teléfono, alli podrás ver si tu telefono es un marvel o un marvelc"
     echo ""
-    echo "Esta ayuda se autocerrará en 20 segundos..."
-    sleep 20s
-    ./tools/espanol
+    echo -n "¿Reiniciar en modo bootloader?(S/N) "
+    read reiniciar
+    if [ "$reiniciar" != "S" ] && [ "$reiniciar" != "s" ] && [ "$reiniciar" != "N" ] && [ "$reiniciar" != "n" ]
+      then
+        ./tools/espanol
+      fi
+    if [ "$reiniciar" = "S" ]
+    then
+        echo ""
+        echo -n "Conecta el teléfono mediante un cable USB y pulsa cualquier tecla: "
+        read continuo2
+        echo ""
+        echo "Necesitamos permisos de superusuario, puede que se te pida tu contraseña de Ubuntu..."
+        echo ""
+        echo "Reiniciando en modo bootloader..."
+        sudo ./tools/adb reboot bootloader
+        ./tools/espanol
+    fi
+    if [ "$reiniciar" = "s" ]
+      then
+        echo ""
+        echo -n "Conecta el teléfono mediante un cable USB y pulsa cualquier tecla: "
+        read continuo2
+        echo ""
+        echo "Necesitamos permisos de superusuario, puede que se te pida tu contraseña de Ubuntu..."
+        echo ""
+        echo "Reiniciando en modo bootloader..."
+        sudo ./tools/adb reboot bootloader
+        ./tools/espanol
+      fi
+    if [ "$reiniciar" = "N" ]
+      then
+        ./tools/espanol
+      fi
+    if [ "$reiniciar" = "n" ]
+      then
+        ./tools/espanol
+      fi
   fi

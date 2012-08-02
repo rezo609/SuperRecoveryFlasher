@@ -14,11 +14,6 @@ echo -n "Elige tu idioma/Select you language: "
 read lang
 if [ "$lang" != "1" ] && [ "$lang" != "2" ]
   then
-    clear
-    echo ""
-    echo "You must to write a 1 or a 2"
-    echo "Solo puedes escribir un 1 o un 2"
-    sleep 3s
     ./runme
   fi
 if [ "$lang" = "1" ]
